@@ -1,0 +1,3 @@
+[submodule "helm/ingress-merge"]
+	path = helm/ingress-merge
+	url = https://github.com/jakubkulhan/ingress-merge
