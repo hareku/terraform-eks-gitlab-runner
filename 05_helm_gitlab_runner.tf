@@ -1,4 +1,14 @@
 #####################################
+# Namespace: gitlab-runner
+#####################################
+
+resource "kubernetes_namespace" "gitlab_runner" {
+  metadata {
+    name = "gitlab-runner"
+  }
+}
+
+#####################################
 # Helm: gitlab-runner
 #####################################
 resource "helm_release" "gitlab_runner" {
@@ -6,7 +16,7 @@ resource "helm_release" "gitlab_runner" {
   repository = "gitlab"
   chart      = "gitlab-runner"
   version    = "0.2.0"
-  namespace  = "default"
+  namespace  = "${kubernetes_namespace.gitlab_runner.metadata.0.name}"
 
   values = [
     <<EOF

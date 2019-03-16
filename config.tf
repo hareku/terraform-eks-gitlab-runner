@@ -11,3 +11,7 @@ provider "helm" {
     config_path = "./config/kubeconfig"
   }
 }
+
+provider "kubernetes" {
+  config_path = "./config/kubeconfig"
+}
