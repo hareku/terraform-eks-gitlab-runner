@@ -47,7 +47,7 @@ module "cluster" {
 
     spot_group = [
       {
-        key                 = "k8s.io/cluster-autoscaler/node-template/label/spot"
+        key                 = "k8s.io/cluster-autoscaler/node-template/label/${local.spot_label}"
         value               = "true"
         propagate_at_launch = true
       },
